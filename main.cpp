@@ -1,7 +1,12 @@
 #include <QApplication>
 
+#include "Controller/controller.h"
+
 int main(int argc, char* argv[]) {
-  QApplication app(argc, argv);
+  QApplication a(argc, argv);
+
+  auto controller = Controller::GetController();
+  controller->Run();
 
   return QApplication::exec();
 }
