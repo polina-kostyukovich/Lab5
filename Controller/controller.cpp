@@ -15,6 +15,6 @@ void Controller::Run() {
 }
 
 Controller::Controller() {
-  view_ = std::make_shared<View>(std::shared_ptr<AbstractController>(controller_));
-  model_ = std::make_unique<Model>(view_);
+  view_ = std::make_unique<View>(std::shared_ptr<AbstractController>(controller_));
+  model_ = std::make_unique<Model>();
 }

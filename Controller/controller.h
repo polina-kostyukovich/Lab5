@@ -19,7 +19,7 @@ class Controller : public AbstractController {
   static std::shared_ptr<Controller> controller_;
 
   std::unique_ptr<Model> model_;
-  std::shared_ptr<View> view_;
+  std::unique_ptr<View> view_;
 };
 
 #endif  // CONTROLLER_H_

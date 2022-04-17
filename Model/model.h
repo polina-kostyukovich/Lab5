@@ -7,10 +7,7 @@
 
 class Model {
  public:
-  explicit Model(const std::shared_ptr<View>& view);
-
- private:
-  std::shared_ptr<View> view_;
+  Model() = default;
 };
 
 #endif  // MODEL_H_
