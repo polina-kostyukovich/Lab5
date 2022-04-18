@@ -3,11 +3,15 @@
 
 #include <memory>
 
-#include "../View/view.h"
-
 class Model {
  public:
   Model() = default;
+
+  int GetScore() const;
+  void SetScore(int score);
+
+ private:
+  int score_;
 };
 
 #endif  // MODEL_H_

@@ -11,10 +11,66 @@ std::shared_ptr<Controller> Controller::GetController() {
 }
 
 void Controller::Run() {
+  ReadSettings();
+  view_->Start();
+  view_->RewriteScore();
   view_->show();
 }
 
-Controller::Controller() {
-  view_ = std::make_unique<View>(std::shared_ptr<AbstractController>(controller_));
-  model_ = std::make_unique<Model>();
+void Controller::SetView(std::unique_ptr<AbstractView>&& view) {
+  view_ = std::move(view);
+}
+
+void Controller::SetModel(std::unique_ptr<Model>&& model) {
+  model_ = std::move(model);
+}
+
+void Controller::ReadSettings() {
+  QSettings settings("Polina Kostyukovich", "Lab5");
+  model_->SetScore(settings.value("Score").toInt());
+  sound_on_ = settings.value("SoundOn").toBool();
+  simple_tasks_ = settings.value("SimpleTasks").toBool();
+}
+
+void Controller::WriteSettings() {
+  QSettings settings("Polina Kostyukovich", "Lab5");
+  settings.setValue("Score", model_->GetScore());
+  settings.setValue("SoundOn", sound_on_);
+  settings.setValue("SimpleTasks", simple_tasks_);
+}
+
+int Controller::GetScore() const {
+  return model_->GetScore();
+}
+
+void Controller::ResetScore() {
+  model_->SetScore(0);
+}
+
+bool Controller::GetSoundOn() const {
+  return sound_on_;
+}
+
+void Controller::SetSound(bool sound_on) {
+  sound_on_ = sound_on;
+}
+
+void Controller::SetSimpleTasks(bool simple_tasks) {
+  simple_tasks_ = simple_tasks;
+}
+
+void Controller::HandlePickAnOptionPressed() {
+
+}
+
+void Controller::HandleInputAnswerPressed() {
+
+}
+
+void Controller::HandleAudioPressed() {
+
+}
+
+void Controller::HandleMixedPressed() {
+
 }
