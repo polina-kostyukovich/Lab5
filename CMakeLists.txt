@@ -19,6 +19,7 @@ add_executable(Lab5
         Model/model.cpp
         Pages/base_page.cpp
         Pages/main_page.cpp
+        Pages/pick_an_option_page.cpp
         Pages/score_widget.cpp
         View/abstract_view.h
         View/view.cpp
