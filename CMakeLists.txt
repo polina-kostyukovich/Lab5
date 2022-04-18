@@ -15,9 +15,11 @@ find_package(Qt6 COMPONENTS
 
 add_executable(Lab5
         main.cpp
-        Controller/abstract_controller.cpp
         Controller/controller.cpp
         Model/model.cpp
+        Pages/main_page.cpp
+        Pages/score_widget.cpp
+        View/abstract_view.h
         View/view.cpp
         )
 target_link_libraries(Lab5
