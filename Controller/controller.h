@@ -35,6 +35,9 @@ class Controller : public QObject {
   void HandleAudioPressed();
   void HandleMixedPressed();
 
+  void HandleToMainPressed();
+  void HandleDonePressed();
+
  private:
   static std::shared_ptr<Controller> controller_;
 

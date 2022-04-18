@@ -38,6 +38,9 @@ class View : public AbstractView {
 
   void RewriteScore() override;
 
+  void RedirectToMainPressed() override;
+  void RedirectDonePressed() override;
+
  private:
   std::shared_ptr<Controller> controller_;
 
