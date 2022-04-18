@@ -13,7 +13,7 @@ QWidget* BasePage::GetCentralWidget() const {
   return central_widget_;
 }
 
-void BasePage::ManageLayout() {
+void BasePage::ManageBaseLayout() {
   layout_->addWidget(progress_, 0, 0, 1, 4, Qt::AlignCenter);
   layout_->addWidget(to_main_, 3, 0, 1, 1, Qt::AlignCenter);
   layout_->addWidget(attempts_left_, 3, 1, 1, 2, Qt::AlignCenter);
@@ -21,7 +21,7 @@ void BasePage::ManageLayout() {
   central_widget_->setLayout(layout_);
 }
 
-void BasePage::ConnectWidgets() {
+void BasePage::ConnectBaseWidgets() {
   connect(to_main_,
           &QPushButton::pressed,
           view_,
@@ -33,7 +33,7 @@ void BasePage::ConnectWidgets() {
           &AbstractView::RedirectDonePressed);
 }
 
-void BasePage::SetWidgetsStyle() {
+void BasePage::SetBaseWidgetsStyle() {
   to_main_->setMinimumSize(170, 40);
   done_->setMinimumSize(170, 40);
 

@@ -15,9 +15,9 @@ class BasePage : public QWidget {
 
   QWidget* GetCentralWidget() const;
 
-  void ManageLayout();
-  void ConnectWidgets();
-  void SetWidgetsStyle();
+  void ManageBaseLayout();
+  void ConnectBaseWidgets();
+  void SetBaseWidgetsStyle();
 
  protected:
   AbstractView* view_;
