@@ -74,3 +74,11 @@ void Controller::HandleAudioPressed() {
 void Controller::HandleMixedPressed() {
 
 }
+
+void Controller::HandleToMainPressed() {
+
+}
+
+void Controller::HandleDonePressed() {
+
+}

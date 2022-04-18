@@ -72,3 +72,11 @@ void View::RedirectSetSimpleTasks(bool simple_tasks) {
 void View::RewriteScore() {
   main_page_->RewriteScore(controller_->GetScore());
 }
+
+void View::RedirectToMainPressed() {
+  controller_->HandleToMainPressed();
+}
+
+void View::RedirectDonePressed() {
+  controller_->HandleDonePressed();
+}

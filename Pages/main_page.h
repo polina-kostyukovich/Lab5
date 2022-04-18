@@ -1,12 +1,10 @@
 #ifndef MAIN_PAGE_H_
 #define MAIN_PAGE_H_
 
-#include <memory>
 #include <QCloseEvent>
 #include <QContextMenuEvent>
 #include <QGridLayout>
 #include <QLabel>
-#include <QMenu>
 #include <QPushButton>
 #include <QWidget>
 

@@ -17,6 +17,7 @@ add_executable(Lab5
         main.cpp
         Controller/controller.cpp
         Model/model.cpp
+        Pages/base_page.cpp
         Pages/main_page.cpp
         Pages/score_widget.cpp
         View/abstract_view.h

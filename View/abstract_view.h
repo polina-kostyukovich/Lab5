@@ -10,6 +10,7 @@ class AbstractView : public QMainWindow {
   virtual void RewriteScore() = 0;
 
  public slots:
+  // main page
   virtual void RedirectPickAnOptionPressed() = 0;
   virtual void RedirectInputAnswerPressed() = 0;
   virtual void RedirectAudioPressed() = 0;
@@ -19,6 +20,10 @@ class AbstractView : public QMainWindow {
 
   virtual void RedirectSetSound(bool sound_on) = 0;
   virtual void RedirectSetSimpleTasks(bool simple_tasks) = 0;
+
+  // base page
+  virtual void RedirectToMainPressed() = 0;
+  virtual void RedirectDonePressed() = 0;
 };
 
 #endif //ABSTRACT_VIEW_H
