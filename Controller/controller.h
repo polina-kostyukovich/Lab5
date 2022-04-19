@@ -6,6 +6,7 @@
 #include <QSettings>
 
 #include "../Model/model.h"
+#include "../Pages/Helpers/question_structs.h"
 #include "../View/abstract_view.h"
 
 class Controller : public QObject {
@@ -23,6 +24,11 @@ class Controller : public QObject {
   void ReadSettings();
   void WriteSettings();
 
+  void ReadData();
+  void ReadDataForPickAnOption();
+
+  int GetNumberOfTasksInExercise() const;
+  int GetLeftAttempts() const;
   int GetScore() const;
   void ResetScore();
 
@@ -37,7 +43,8 @@ class Controller : public QObject {
 
   void HandleToMainPressed();
 
-  void HandleAnswerChosen(int answer);
+  void SetNextPickAnOptionQuestion();
+  void HandleAnswerChosen(const std::string& answer);
 
  private:
   static std::shared_ptr<Controller> controller_;
@@ -48,7 +55,11 @@ class Controller : public QObject {
   bool sound_on_;
   bool simple_tasks_;
 
+  const int kNumberOfTasksInExercise = 5;
+  const int kNumberOfAttempts = 2;
   int current_score_{0};
+  int attempts_left_{kNumberOfAttempts};
+  int number_of_tasks_left_{kNumberOfTasksInExercise};
 };
 
 #endif  // CONTROLLER_H_

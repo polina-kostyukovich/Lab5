@@ -17,7 +17,11 @@
 class View : public AbstractView {
  public:
   explicit View(const std::shared_ptr<Controller>& controller);
+
   void Start() override;
+
+  int GetWindowWidth() const override;
+  int GetWindowHeight() const override;
 
   void ManageLayouts();
   void ConnectWidgets();
@@ -25,10 +29,18 @@ class View : public AbstractView {
 
   void RewriteScore() override;
 
+  void RewriteAttempts() override;
+  void ShowRightAnswer(const std::string& answer) override;
+
   void SetMainPage() override;
   void SetPickAnOptionPage() override;
+  void SetPickAnOptionQuestion(const ManyAnswersQuestion& task) override;
+
+  void ShowExerciseHappyEnd() override;
+  void ShowExerciseUnhappyEnd() override;
 
   void closeEvent(QCloseEvent* event) override;
+  void resizeEvent(QResizeEvent* event) override;
 
   void RedirectPickAnOptionPressed() override;
   void RedirectInputAnswerPressed() override;
@@ -42,12 +54,16 @@ class View : public AbstractView {
 
   void RedirectToMainPressed() override;
   void RedirectDonePressed() override;
+  void RedirectNextPressed() override;
 
  private:
   std::shared_ptr<Controller> controller_;
 
   std::unique_ptr<MainPage> main_page_;
   std::unique_ptr<PickAnOptionPage> pick_an_option_page_;
+
+  int window_width_{900};
+  int window_height_{600};
 };
 
 #endif  // VIEW_H_
