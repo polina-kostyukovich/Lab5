@@ -19,7 +19,11 @@ add_executable(Lab5
         Model/model.cpp
         Pages/base_page.cpp
         Pages/main_page.cpp
-        Pages/score_widget.cpp
+        Pages/Helpers/animation_widget.cpp
+        Pages/Helpers/radio_button_group.cpp
+        Pages/Helpers/score_widget.cpp
+        Pages/pick_an_option_page.cpp
+        resources.qrc
         View/abstract_view.h
         View/view.cpp
         )

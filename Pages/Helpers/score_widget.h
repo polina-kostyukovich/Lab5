@@ -7,7 +7,7 @@
 #include <QMenu>
 #include <QWidget>
 
-#include "../View/abstract_view.h"
+#include "../../View/abstract_view.h"
 
 class ScoreWidget : public QWidget {
  public:

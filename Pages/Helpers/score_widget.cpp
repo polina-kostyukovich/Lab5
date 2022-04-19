@@ -6,7 +6,9 @@ ScoreWidget::ScoreWidget(AbstractView* view) :
     context_menu_(new QMenu) {
   wrapper_->addWidget(score_text_, 0, 0, 1, 1, Qt::AlignCenter);
   setLayout(wrapper_);
-  context_menu_->addAction("Reset score", view, &AbstractView::RedirectResetScore);
+  context_menu_->addAction("Reset score",
+                           view,
+                           &AbstractView::RedirectResetScore);
 }
 
 void ScoreWidget::SetText(const QString& text) {

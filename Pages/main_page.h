@@ -8,7 +8,7 @@
 #include <QPushButton>
 #include <QWidget>
 
-#include "score_widget.h"
+#include "Helpers/score_widget.h"
 #include "../View/abstract_view.h"
 
 class MainPage : public QWidget {
