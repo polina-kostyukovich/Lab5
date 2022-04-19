@@ -60,7 +60,8 @@ void Controller::SetSimpleTasks(bool simple_tasks) {
 }
 
 void Controller::HandlePickAnOptionPressed() {
-
+  view_->SetPickAnOptionPage();
+  // something with data
 }
 
 void Controller::HandleInputAnswerPressed() {
@@ -76,9 +77,10 @@ void Controller::HandleMixedPressed() {
 }
 
 void Controller::HandleToMainPressed() {
-
+  current_score_ = 0;
+  view_->SetMainPage();
 }
 
-void Controller::HandleDonePressed() {
-
+void Controller::HandleAnswerChosen(int answer) {
+  // manipulations with data
 }

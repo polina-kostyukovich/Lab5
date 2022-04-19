@@ -9,6 +9,9 @@ class AbstractView : public QMainWindow {
   virtual void Start() = 0;
   virtual void RewriteScore() = 0;
 
+  virtual void SetMainPage() = 0;
+  virtual void SetPickAnOptionPage() = 0;
+
  public slots:
   // main page
   virtual void RedirectPickAnOptionPressed() = 0;

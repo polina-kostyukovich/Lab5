@@ -1,8 +1,24 @@
-#ifndef PICK_AN_OPTION_PAGE_H
-#define PICK_AN_OPTION_PAGE_H
+#ifndef PICK_AN_OPTION_PAGE_H_
+#define PICK_AN_OPTION_PAGE_H_
 
-class PickAnOptionPage {
+#include <QGroupBox>
 
+#include "base_page.h"
+#include "radio_button_group.h"
+
+class PickAnOptionPage : public BasePage {
+ public:
+  explicit PickAnOptionPage(AbstractView* view);
+
+  void ManageLayout();
+  void ConnectWidgets();
+  void SetWidgetsStyle();
+
+  int GetAnswer() const;
+
+ private:
+  QLabel* question_;
+  RadioButtonGroup buttons_;
 };
 
-#endif //PICK_AN_OPTION_PAGE_H
+#endif  // PICK_AN_OPTION_PAGE_H_

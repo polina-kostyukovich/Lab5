@@ -36,7 +36,8 @@ class Controller : public QObject {
   void HandleMixedPressed();
 
   void HandleToMainPressed();
-  void HandleDonePressed();
+
+  void HandleAnswerChosen(int answer);
 
  private:
   static std::shared_ptr<Controller> controller_;
@@ -46,6 +47,8 @@ class Controller : public QObject {
 
   bool sound_on_;
   bool simple_tasks_;
+
+  int current_score_{0};
 };
 
 #endif  // CONTROLLER_H_

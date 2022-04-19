@@ -20,6 +20,7 @@ add_executable(Lab5
         Pages/base_page.cpp
         Pages/main_page.cpp
         Pages/pick_an_option_page.cpp
+        Pages/radio_button_group.cpp
         Pages/score_widget.cpp
         View/abstract_view.h
         View/view.cpp

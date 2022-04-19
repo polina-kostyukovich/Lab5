@@ -12,6 +12,7 @@
 #include "abstract_view.h"
 #include "../Controller/controller.h"
 #include "../Pages/main_page.h"
+#include "../Pages/pick_an_option_page.h"
 
 class View : public AbstractView {
  public:
@@ -19,10 +20,13 @@ class View : public AbstractView {
   void Start() override;
 
   void ManageLayouts();
-
   void ConnectWidgets();
-
   void SetWidgetsStyle();
+
+  void RewriteScore() override;
+
+  void SetMainPage() override;
+  void SetPickAnOptionPage() override;
 
   void closeEvent(QCloseEvent* event) override;
 
@@ -36,8 +40,6 @@ class View : public AbstractView {
   void RedirectSetSound(bool sound_on) override;
   void RedirectSetSimpleTasks(bool simple_tasks) override;
 
-  void RewriteScore() override;
-
   void RedirectToMainPressed() override;
   void RedirectDonePressed() override;
 
@@ -45,6 +47,7 @@ class View : public AbstractView {
   std::shared_ptr<Controller> controller_;
 
   std::unique_ptr<MainPage> main_page_;
+  std::unique_ptr<PickAnOptionPage> pick_an_option_page_;
 };
 
 #endif  // VIEW_H_
