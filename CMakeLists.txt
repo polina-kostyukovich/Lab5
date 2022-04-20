@@ -22,6 +22,7 @@ add_executable(Lab5
         Pages/Helpers/animation_widget.cpp
         Pages/Helpers/radio_button_group.cpp
         Pages/Helpers/score_widget.cpp
+        Pages/input_answer_page.cpp
         Pages/pick_an_option_page.cpp
         resources.qrc
         View/abstract_view.h
