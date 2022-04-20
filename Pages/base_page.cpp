@@ -7,6 +7,7 @@ BasePage::BasePage(AbstractView* view) :
     progress_text_(new QLabel("Your progress in the exercise:",
                               central_widget_)),
     progress_(new QProgressBar(central_widget_)),
+    task_(new QLabel(central_widget_)),
     right_answer_(new QLabel("", central_widget_)),
     to_main_(new QPushButton("To main page", central_widget_)),
     attempts_left_(new QLabel(central_widget_)),
@@ -27,11 +28,12 @@ QWidget* BasePage::GetCentralWidget() const {
 void BasePage::ManageBaseLayout() {
   layout_->addWidget(progress_text_, 0, 0, 1, 2, Qt::AlignRight);
   layout_->addWidget(progress_, 0, 2, 1, 2, Qt::AlignLeft);
-  layout_->addWidget(right_answer_, 3, 1, 1, 2, Qt::AlignCenter);
-  layout_->addWidget(to_main_, 4, 0, 1, 1, Qt::AlignCenter);
-  layout_->addWidget(attempts_left_, 4, 1, 1, 2, Qt::AlignCenter);
-  layout_->addWidget(done_, 4, 3, 1, 1, Qt::AlignCenter);
-  layout_->addWidget(next_, 4, 3, 1, 1, Qt::AlignCenter);
+  layout_->addWidget(task_, 1, 1, 1, 2, Qt::AlignCenter);
+  layout_->addWidget(right_answer_, 4, 1, 1, 2, Qt::AlignCenter);
+  layout_->addWidget(to_main_, 5, 0, 1, 1, Qt::AlignCenter);
+  layout_->addWidget(attempts_left_, 5, 1, 1, 2, Qt::AlignCenter);
+  layout_->addWidget(done_, 5, 3, 1, 1, Qt::AlignCenter);
+  layout_->addWidget(next_, 5, 3, 1, 1, Qt::AlignCenter);
   central_widget_->setLayout(layout_);
 }
 
@@ -75,6 +77,7 @@ void BasePage::SetBaseWidgetsStyle() {
 
   font.setItalic(true);
   attempts_left_->setFont(font);
+  task_->setFont(font);
 
   font.setPixelSize(20);
   right_answer_->setFont(font);

@@ -35,6 +35,7 @@ class BasePage : public QWidget {
   QGridLayout* layout_;
   QLabel* progress_text_;
   QProgressBar* progress_;
+  QLabel* task_;
   QLabel* right_answer_;
   QPushButton* to_main_;
   QLabel* attempts_left_;

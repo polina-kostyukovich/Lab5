@@ -4,13 +4,15 @@
 
 PickAnOptionPage::PickAnOptionPage(AbstractView* view) :
     BasePage(view),
-    question_(new QLabel(this)) {}
+    question_(new QLabel(this)) {
+  task_->setText("Choose the correct answer.");
+}
 
 void PickAnOptionPage::ManageLayout() {
   BasePage::ManageBaseLayout();
 
-  layout_->addWidget(question_, 1, 1, 1, 2, Qt::AlignCenter);
-  layout_->addWidget(&buttons_, 2, 1, 1, 2, Qt::AlignCenter);
+  layout_->addWidget(question_, 2, 1, 1, 2, Qt::AlignCenter);
+  layout_->addWidget(&buttons_, 3, 1, 1, 2, Qt::AlignCenter);
 }
 
 void PickAnOptionPage::ConnectWidgets() {
