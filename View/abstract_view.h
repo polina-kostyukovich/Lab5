@@ -17,6 +17,8 @@ class AbstractView : public QMainWindow {
   virtual void RewriteAttempts() = 0;
   virtual void ShowRightAnswer(const std::string& answer) = 0;
 
+  virtual void SetProgress(int progress) = 0;
+
   virtual void SetMainPage() = 0;
 
   virtual void SetPickAnOptionPage() = 0;

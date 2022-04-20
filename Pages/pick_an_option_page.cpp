@@ -43,6 +43,10 @@ void PickAnOptionPage::SetQuestion(const ManyAnswersQuestion& task) {
   std::shuffle(answers.begin(),
                answers.end(),
                std::mt19937(std::random_device()()));
-  buttons_.Reset();
+  Reset();
   buttons_.SetAnswers(answers);
+}
+
+void PickAnOptionPage::Reset() {
+  buttons_.Reset();
 }

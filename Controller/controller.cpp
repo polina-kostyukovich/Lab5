@@ -132,19 +132,17 @@ void Controller::SetSimpleTasks(bool simple_tasks) {
 
 void Controller::HandlePickAnOptionPressed() {
   view_->SetPickAnOptionPage();
+  view_->SetProgress(0);
   SetNextPickAnOptionQuestion();
 }
 
 void Controller::HandleInputAnswerPressed() {
   view_->SetInputAnswerPage();
+  view_->SetProgress(0);
   SetNextInputAnswerQuestion();
 }
 
 void Controller::HandleAudioPressed() {
-
-}
-
-void Controller::HandleMixedPressed() {
 
 }
 
@@ -169,9 +167,7 @@ void Controller::HandleAnswerChosen(const std::string& answer) {
   if (simple_tasks_) {
     if (answer == model_->GetCurrentPickAnOptionSimpleQuestion().right_answer) {
       current_score_ += 10;
-      // todo happy sound
     } else {
-      // todo upset sound
       --attempts_left_;
       view_->ShowRightAnswer(
           model_->GetCurrentPickAnOptionSimpleQuestion().right_answer);
@@ -185,11 +181,7 @@ void Controller::HandleAnswerChosen(const std::string& answer) {
     if (answer
         == model_->GetCurrentPickAnOptionDifficultQuestion().right_answer) {
       current_score_ += 20;
-
-      // todo happy sound
     } else {
-      // todo upset sound
-
       --attempts_left_;
       view_->ShowRightAnswer(
           model_->GetCurrentPickAnOptionDifficultQuestion().right_answer);
@@ -206,6 +198,7 @@ void Controller::HandleAnswerChosen(const std::string& answer) {
     view_->RewriteScore();
     view_->ShowExerciseHappyEnd();
   }
+  view_->SetProgress(kNumberOfTasksInExercise - number_of_tasks_left_);
 }
 
 void Controller::SetNextInputAnswerQuestion() {
@@ -222,9 +215,7 @@ void Controller::HandleInputAnswerEntered(const std::string& answer) {
   if (simple_tasks_) {
     if (answer == model_->GetCurrentInputAnswerSimpleQuestion().answer) {
       current_score_ += 10;
-      // todo happy sound
     } else {
-      // todo upset sound
       --attempts_left_;
       view_->ShowRightAnswer(
           model_->GetCurrentInputAnswerSimpleQuestion().answer);
@@ -237,11 +228,7 @@ void Controller::HandleInputAnswerEntered(const std::string& answer) {
   } else {
     if (answer == model_->GetCurrentInputAnswerDifficultQuestion().answer) {
       current_score_ += 20;
-
-      // todo happy sound
     } else {
-      // todo upset sound
-
       --attempts_left_;
       view_->ShowRightAnswer(
           model_->GetCurrentInputAnswerDifficultQuestion().answer);
@@ -258,4 +245,5 @@ void Controller::HandleInputAnswerEntered(const std::string& answer) {
     view_->RewriteScore();
     view_->ShowExerciseHappyEnd();
   }
+  view_->SetProgress(kNumberOfTasksInExercise - number_of_tasks_left_);
 }

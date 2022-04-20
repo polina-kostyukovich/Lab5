@@ -14,6 +14,12 @@ View::View(const std::shared_ptr<Controller>& controller) :
       controller_->GetNumberOfTasksInExercise());
   input_answer_page_->SetMaxInProgress(
       controller_->GetNumberOfTasksInExercise());
+
+  setWindowIcon(QIcon(":Pages/Pictures/icon.png"));
+
+  auto* exit_action = menuBar()->addAction("");
+  connect(exit_action, &QAction::triggered, this, &QMainWindow::close);
+  exit_action->setShortcut(QKeySequence::Close);
 }
 
 void View::Start() {
@@ -71,6 +77,11 @@ void View::ShowRightAnswer(const std::string& answer) {
   if (centralWidget() == input_answer_page_->GetCentralWidget()) {
     input_answer_page_->ShowRightAnswer(answer);
   }
+}
+
+void View::SetProgress(int progress) {
+  pick_an_option_page_->SetProgress(progress);
+  input_answer_page_->SetProgress(progress);
 }
 
 void View::SetMainPage() {
@@ -146,7 +157,13 @@ void View::RedirectAudioPressed() {
 }
 
 void View::RedirectMixedPressed() {
-  controller_->HandleMixedPressed();
+  is_mixed_page_ = true;
+  int random_number = rand() % 2;
+  if (random_number == 0) {
+    controller_->HandlePickAnOptionPressed();
+  } else {
+    controller_->HandleInputAnswerPressed();
+  }
 }
 
 void View::RedirectResetScore() {
@@ -162,6 +179,7 @@ void View::RedirectSetSimpleTasks(bool simple_tasks) {
 }
 
 void View::RedirectToMainPressed() {
+  is_mixed_page_ = false;
   controller_->HandleToMainPressed();
 }
 
@@ -175,6 +193,14 @@ void View::RedirectDonePressed() {
 }
 
 void View::RedirectNextPressed() {
+  if (is_mixed_page_) {
+    int random_number = rand() % 2;
+    if (random_number == 0) {
+      SetPickAnOptionPage();
+    } else {
+      SetInputAnswerPage();
+    }
+  }
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     controller_->SetNextPickAnOptionQuestion();
   }

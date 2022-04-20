@@ -20,6 +20,8 @@ class PickAnOptionPage : public BasePage {
 
   void SetQuestion(const ManyAnswersQuestion& task);
 
+  void Reset();
+
  private:
   QLabel* question_;
   RadioButtonGroup buttons_;
