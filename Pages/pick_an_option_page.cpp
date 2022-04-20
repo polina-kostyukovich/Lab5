@@ -29,6 +29,10 @@ void PickAnOptionPage::SetWidgetsStyle() {
   question_->setFont(font);
 }
 
+const std::string& PickAnOptionPage::GetAnswer() const {
+  return buttons_.GetChosenAnswer();
+}
+
 void PickAnOptionPage::SetQuestion(const ManyAnswersQuestion& task) {
   question_->setText(QString::fromStdString(task.question));
 
@@ -41,8 +45,4 @@ void PickAnOptionPage::SetQuestion(const ManyAnswersQuestion& task) {
                std::mt19937(std::random_device()()));
   buttons_.Reset();
   buttons_.SetAnswers(answers);
-}
-
-const std::string& PickAnOptionPage::GetAnswer() const {
-  return buttons_.GetChosenAnswer();
 }
