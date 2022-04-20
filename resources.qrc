@@ -3,6 +3,9 @@
         <file>Pages/Exercises/pick_an_option_exercises_difficult.txt</file>
         <file>Pages/Exercises/pick_an_option_exercises_simple.txt</file>
 
+        <file>Pages/Exercises/input_answer_exercises_difficult.txt</file>
+        <file>Pages/Exercises/input_answer_exercises_simple.txt</file>
+
         <file>Pages/Pictures/Upset/upset-0000.jpg</file>
         <file>Pages/Pictures/Upset/upset-0001.jpg</file>
         <file>Pages/Pictures/Upset/upset-0002.jpg</file>
@@ -13,6 +16,7 @@
         <file>Pages/Pictures/Upset/upset-0007.jpg</file>
         <file>Pages/Pictures/Upset/upset-0008.jpg</file>
         <file>Pages/Pictures/Upset/upset-0009.jpg</file>
+
         <file>Pages/Pictures/Happy/happy-0000.jpg</file>
         <file>Pages/Pictures/Happy/happy-0001.jpg</file>
         <file>Pages/Pictures/Happy/happy-0002.jpg</file>

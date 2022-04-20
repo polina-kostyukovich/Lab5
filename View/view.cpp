@@ -7,9 +7,12 @@ View::View(const std::shared_ptr<Controller>& controller) :
     controller_(controller) {
   main_page_ = std::make_unique<MainPage>(this);
   pick_an_option_page_ = std::make_unique<PickAnOptionPage>(this);
+  input_answer_page_ = std::make_unique<InputAnswerPage>(this);
   setMinimumSize(900, 600);
 
   pick_an_option_page_->SetMaxInProgress(
+      controller_->GetNumberOfTasksInExercise());
+  input_answer_page_->SetMaxInProgress(
       controller_->GetNumberOfTasksInExercise());
 }
 
@@ -32,17 +35,20 @@ int View::GetWindowHeight() const {
 void View::ManageLayouts() {
   main_page_->ManageLayout();
   pick_an_option_page_->ManageLayout();
+  input_answer_page_->ManageLayout();
 }
 
 void View::ConnectWidgets() {
   main_page_->ConnectWidgets();
   main_page_->CreateMenu(controller_->GetSoundOn());
   pick_an_option_page_->ConnectWidgets();
+  input_answer_page_->ConnectWidgets();
 }
 
 void View::SetWidgetsStyle() {
   main_page_->SetWidgetsStyle();
   pick_an_option_page_->SetWidgetsStyle();
+  input_answer_page_->SetWidgetsStyle();
 }
 
 void View::RewriteScore() {
@@ -53,11 +59,17 @@ void View::RewriteAttempts() {
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     pick_an_option_page_->RewriteAttempts(controller_->GetLeftAttempts());
   }
+  if (centralWidget() == input_answer_page_->GetCentralWidget()) {
+    input_answer_page_->RewriteAttempts(controller_->GetLeftAttempts());
+  }
 }
 
 void View::ShowRightAnswer(const std::string& answer) {
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     pick_an_option_page_->ShowRightAnswer(answer);
+  }
+  if (centralWidget() == input_answer_page_->GetCentralWidget()) {
+    input_answer_page_->ShowRightAnswer(answer);
   }
 }
 
@@ -76,15 +88,32 @@ void View::SetPickAnOptionQuestion(const ManyAnswersQuestion& task) {
   pick_an_option_page_->SetQuestion(task);
 }
 
+void View::SetInputAnswerPage() {
+  takeCentralWidget();
+  setCentralWidget(input_answer_page_->GetCentralWidget());
+  RewriteAttempts();
+  input_answer_page_->ClearAnswer();
+}
+
+void View::SetInputAnswerQuestion(const std::string& question) {
+  input_answer_page_->SetQuestion(question);
+}
+
 void View::ShowExerciseHappyEnd() {
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     pick_an_option_page_->ShowHappyEnd();
+  }
+  if (centralWidget() == input_answer_page_->GetCentralWidget()) {
+    input_answer_page_->ShowHappyEnd();
   }
 }
 
 void View::ShowExerciseUnhappyEnd() {
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     pick_an_option_page_->ShowUnhappyEnd();
+  }
+  if (centralWidget() == input_answer_page_->GetCentralWidget()) {
+    input_answer_page_->ShowUnhappyEnd();
   }
 }
 
@@ -140,10 +169,17 @@ void View::RedirectDonePressed() {
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     controller_->HandleAnswerChosen(pick_an_option_page_->GetAnswer());
   }
+  if (centralWidget() == input_answer_page_->GetCentralWidget()) {
+    controller_->HandleInputAnswerEntered(input_answer_page_->GetAnswer());
+  }
 }
 
 void View::RedirectNextPressed() {
   if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
     controller_->SetNextPickAnOptionQuestion();
+  }
+  if (centralWidget() == input_answer_page_->GetCentralWidget()) {
+    controller_->SetNextInputAnswerQuestion();
+    input_answer_page_->ClearAnswer();
   }
 }

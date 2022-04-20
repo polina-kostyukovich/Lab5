@@ -52,3 +52,46 @@ const ManyAnswersQuestion& Model::GetCurrentPickAnOptionDifficultQuestion()
       current_pick_an_option_difficult_question_
           % pick_an_option_difficult_questions_.size()];
 }
+
+void Model::SetInputAnswerSimpleQuestions(
+    std::vector<TextAnswerQuestion>&& questions) {
+  input_answer_simple_questions_ = std::move(questions);
+  std::shuffle(input_answer_simple_questions_.begin(),
+               input_answer_simple_questions_.end(),
+               std::mt19937(std::random_device()()));
+}
+
+void Model::SetInputAnswerDifficultQuestions(
+    std::vector<TextAnswerQuestion>&& questions) {
+  input_answer_difficult_questions_ = std::move(questions);
+  std::shuffle(input_answer_difficult_questions_.begin(),
+               input_answer_difficult_questions_.end(),
+               std::mt19937(std::random_device()()));
+}
+
+const TextAnswerQuestion& Model::GetNextInputAnswerSimpleQuestion() {
+  ++current_input_answer_simple_question_;
+  return input_answer_simple_questions_[
+      current_input_answer_simple_question_
+          % input_answer_simple_questions_.size()];
+}
+
+const TextAnswerQuestion& Model::GetCurrentInputAnswerSimpleQuestion() const {
+  return input_answer_simple_questions_[
+      current_input_answer_simple_question_
+          % input_answer_simple_questions_.size()];
+}
+
+const TextAnswerQuestion& Model::GetNextInputAnswerDifficultQuestion() {
+  ++current_input_answer_difficult_question_;
+  return input_answer_difficult_questions_[
+      current_input_answer_difficult_question_
+          % input_answer_difficult_questions_.size()];
+}
+
+const TextAnswerQuestion& Model::GetCurrentInputAnswerDifficultQuestion()
+const {
+  return input_answer_difficult_questions_[
+      current_input_answer_difficult_question_
+          % input_answer_difficult_questions_.size()];
+}

@@ -22,6 +22,9 @@ class AbstractView : public QMainWindow {
   virtual void SetPickAnOptionPage() = 0;
   virtual void SetPickAnOptionQuestion(const ManyAnswersQuestion&) = 0;
 
+  virtual void SetInputAnswerPage() = 0;
+  virtual void SetInputAnswerQuestion(const std::string& question) = 0;
+
   virtual void ShowExerciseHappyEnd() = 0;
   virtual void ShowExerciseUnhappyEnd() = 0;
 

@@ -12,13 +12,13 @@ class PickAnOptionPage : public BasePage {
  public:
   explicit PickAnOptionPage(AbstractView* view);
 
-  void ManageLayout();
-  void ConnectWidgets();
-  void SetWidgetsStyle();
+  void ManageLayout() override;
+  void ConnectWidgets() override;
+  void SetWidgetsStyle() override;
+
+  const std::string& GetAnswer() const override;
 
   void SetQuestion(const ManyAnswersQuestion& task);
-
-  const std::string& GetAnswer() const;
 
  private:
   QLabel* question_;

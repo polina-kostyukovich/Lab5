@@ -26,6 +26,7 @@ class Controller : public QObject {
 
   void ReadData();
   void ReadDataForPickAnOption();
+  void ReadDataForInputAnswer();
 
   int GetNumberOfTasksInExercise() const;
   int GetLeftAttempts() const;
@@ -45,6 +46,9 @@ class Controller : public QObject {
 
   void SetNextPickAnOptionQuestion();
   void HandleAnswerChosen(const std::string& answer);
+
+  void SetNextInputAnswerQuestion();
+  void HandleInputAnswerEntered(const std::string& answer);
 
  private:
   static std::shared_ptr<Controller> controller_;

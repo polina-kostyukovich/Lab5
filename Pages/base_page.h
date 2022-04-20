@@ -20,6 +20,12 @@ class BasePage : public QWidget {
   void ConnectBaseWidgets();
   void SetBaseWidgetsStyle();
 
+  virtual void ManageLayout() = 0;
+  virtual void ConnectWidgets() = 0;
+  virtual void SetWidgetsStyle() = 0;
+
+  virtual const std::string& GetAnswer() const = 0;
+
   void SetMaxInProgress(int max_progress);
 
   void RewriteAttempts(int attempts);

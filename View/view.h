@@ -12,6 +12,7 @@
 #include "abstract_view.h"
 #include "../Controller/controller.h"
 #include "../Pages/main_page.h"
+#include "../Pages/input_answer_page.h"
 #include "../Pages/pick_an_option_page.h"
 
 class View : public AbstractView {
@@ -33,8 +34,12 @@ class View : public AbstractView {
   void ShowRightAnswer(const std::string& answer) override;
 
   void SetMainPage() override;
+
   void SetPickAnOptionPage() override;
   void SetPickAnOptionQuestion(const ManyAnswersQuestion& task) override;
+
+  void SetInputAnswerPage() override;
+  void SetInputAnswerQuestion(const std::string& question) override;
 
   void ShowExerciseHappyEnd() override;
   void ShowExerciseUnhappyEnd() override;
@@ -61,6 +66,7 @@ class View : public AbstractView {
 
   std::unique_ptr<MainPage> main_page_;
   std::unique_ptr<PickAnOptionPage> pick_an_option_page_;
+  std::unique_ptr<InputAnswerPage> input_answer_page_;
 
   int window_width_{900};
   int window_height_{600};

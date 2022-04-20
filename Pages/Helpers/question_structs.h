@@ -10,4 +10,9 @@ struct ManyAnswersQuestion {
   std::string wrong_answer2;
 };
 
+struct TextAnswerQuestion {
+  std::string question;
+  std::string answer;
+};
+
 #endif //QUESTION_STRUCTS_H
