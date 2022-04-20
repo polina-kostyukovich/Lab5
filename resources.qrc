@@ -1,0 +1,54 @@
+<RCC>
+    <qresource>
+        <file>Pages/Exercises/pick_an_option_exercises_difficult.txt</file>
+        <file>Pages/Exercises/pick_an_option_exercises_simple.txt</file>
+
+        <file>Pages/Exercises/input_answer_exercises_difficult.txt</file>
+        <file>Pages/Exercises/input_answer_exercises_simple.txt</file>
+
+        <file>Pages/Pictures/icon.png</file>
+
+        <file>Pages/Pictures/Upset/upset-0000.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0001.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0002.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0003.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0004.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0005.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0006.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0007.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0008.jpg</file>
+        <file>Pages/Pictures/Upset/upset-0009.jpg</file>
+
+        <file>Pages/Pictures/Happy/happy-0000.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0001.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0002.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0003.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0004.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0005.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0006.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0007.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0008.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0009.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0010.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0011.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0012.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0013.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0014.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0015.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0016.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0017.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0018.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0019.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0020.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0021.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0022.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0023.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0024.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0025.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0026.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0027.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0028.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0029.jpg</file>
+        <file>Pages/Pictures/Happy/happy-0030.jpg</file>
+    </qresource>
+</RCC>
