@@ -10,6 +10,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt6 COMPONENTS
         Core
         Gui
+#        Multimedia
         Widgets
         REQUIRED)
 
@@ -32,5 +33,6 @@ add_executable(Lab5
 target_link_libraries(Lab5
         Qt::Core
         Qt::Gui
+#        Qt::Multimedia
         Qt::Widgets
         )

@@ -141,7 +141,8 @@ void Controller::HandleInputAnswerPressed() {
 }
 
 void Controller::HandleAudioPressed() {
-
+  view_->SetAudioPage();
+  SetNextAudioQuestion();
 }
 
 void Controller::HandleMixedPressed() {
@@ -258,4 +259,12 @@ void Controller::HandleInputAnswerEntered(const std::string& answer) {
     view_->RewriteScore();
     view_->ShowExerciseHappyEnd();
   }
+}
+
+void Controller::SetNextAudioQuestion() {
+
+}
+
+const std::string& Controller::GetCurrentAudio() const {
+  return "";
 }

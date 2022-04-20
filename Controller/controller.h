@@ -50,6 +50,9 @@ class Controller : public QObject {
   void SetNextInputAnswerQuestion();
   void HandleInputAnswerEntered(const std::string& answer);
 
+  void SetNextAudioQuestion();
+  const std::string& GetCurrentAudio() const;
+
  private:
   static std::shared_ptr<Controller> controller_;
 

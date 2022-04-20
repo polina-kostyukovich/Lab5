@@ -8,6 +8,7 @@ View::View(const std::shared_ptr<Controller>& controller) :
   main_page_ = std::make_unique<MainPage>(this);
   pick_an_option_page_ = std::make_unique<PickAnOptionPage>(this);
   input_answer_page_ = std::make_unique<InputAnswerPage>(this);
+  audio_page_ = std::make_unique<AudioPage>(this);
   setMinimumSize(900, 600);
 
   pick_an_option_page_->SetMaxInProgress(
@@ -36,6 +37,7 @@ void View::ManageLayouts() {
   main_page_->ManageLayout();
   pick_an_option_page_->ManageLayout();
   input_answer_page_->ManageLayout();
+  audio_page_->ManageLayout();
 }
 
 void View::ConnectWidgets() {
@@ -43,12 +45,14 @@ void View::ConnectWidgets() {
   main_page_->CreateMenu(controller_->GetSoundOn());
   pick_an_option_page_->ConnectWidgets();
   input_answer_page_->ConnectWidgets();
+  audio_page_->ConnectWidgets();
 }
 
 void View::SetWidgetsStyle() {
   main_page_->SetWidgetsStyle();
   pick_an_option_page_->SetWidgetsStyle();
   input_answer_page_->SetWidgetsStyle();
+  audio_page_->SetWidgetsStyle();
 }
 
 void View::RewriteScore() {
@@ -97,6 +101,13 @@ void View::SetInputAnswerPage() {
 
 void View::SetInputAnswerQuestion(const std::string& question) {
   input_answer_page_->SetQuestion(question);
+}
+
+void View::SetAudioPage() {
+  takeCentralWidget();
+  setCentralWidget(audio_page_->GetCentralWidget());
+  RewriteAttempts();
+  audio_page_->ClearAnswer();
 }
 
 void View::ShowExerciseHappyEnd() {

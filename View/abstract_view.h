@@ -25,6 +25,8 @@ class AbstractView : public QMainWindow {
   virtual void SetInputAnswerPage() = 0;
   virtual void SetInputAnswerQuestion(const std::string& question) = 0;
 
+  virtual void SetAudioPage() = 0;
+
   virtual void ShowExerciseHappyEnd() = 0;
   virtual void ShowExerciseUnhappyEnd() = 0;
 
