@@ -31,6 +31,8 @@ class BasePage : public QWidget {
   void RewriteAttempts(int attempts);
   void ShowRightAnswer(const std::string& answer);
 
+  void SetProgress(int progress);
+
   void ShowHappyEnd();
   void ShowUnhappyEnd();
 

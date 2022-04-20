@@ -40,7 +40,6 @@ class Controller : public QObject {
   void HandlePickAnOptionPressed();
   void HandleInputAnswerPressed();
   void HandleAudioPressed();
-  void HandleMixedPressed();
 
   void HandleToMainPressed();
 

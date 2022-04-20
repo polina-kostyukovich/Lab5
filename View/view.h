@@ -33,6 +33,8 @@ class View : public AbstractView {
   void RewriteAttempts() override;
   void ShowRightAnswer(const std::string& answer) override;
 
+  void SetProgress(int progress) override;
+
   void SetMainPage() override;
 
   void SetPickAnOptionPage() override;
@@ -70,6 +72,8 @@ class View : public AbstractView {
 
   int window_width_{900};
   int window_height_{600};
+
+  bool is_mixed_page_{false};
 };
 
 #endif  // VIEW_H_

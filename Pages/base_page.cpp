@@ -13,7 +13,6 @@ BasePage::BasePage(AbstractView* view) :
     attempts_left_(new QLabel(central_widget_)),
     done_(new QPushButton("Done", central_widget_)),
     next_(new QPushButton("Next question", central_widget_)) {
-  progress_->setValue(1);
   progress_->setAlignment(Qt::AlignCenter);
   progress_->setTextVisible(false);
   next_->setVisible(false);
@@ -42,7 +41,6 @@ void BasePage::ConnectBaseWidgets() {
     done_->setVisible(true);
     next_->setVisible(false);
     right_answer_->setText("");
-    progress_->setValue(1);
     image_.Hide();
     view_->RedirectToMainPressed();
   });
@@ -58,7 +56,6 @@ void BasePage::ConnectBaseWidgets() {
     done_->setVisible(true);
     next_->setVisible(false);
     right_answer_->setText("");
-    progress_->setValue(progress_->value() + 1);
     view_->RedirectNextPressed();
   });
 }
@@ -94,6 +91,10 @@ void BasePage::RewriteAttempts(int attempts) {
 void BasePage::ShowRightAnswer(const std::string& answer) {
   right_answer_->setVisible(true);
   right_answer_->setText("Right answer: " + QString::fromStdString(answer));
+}
+
+void BasePage::SetProgress(int progress) {
+  progress_->setValue(progress);
 }
 
 void BasePage::ShowHappyEnd() {
