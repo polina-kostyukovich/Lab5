@@ -15,6 +15,8 @@ View::View(const std::shared_ptr<Controller>& controller) :
   input_answer_page_->SetMaxInProgress(
       controller_->GetNumberOfTasksInExercise());
 
+  setWindowIcon(QIcon(":Pages/Pictures/icon.png"));
+
   auto* exit_action = menuBar()->addAction("");
   connect(exit_action, &QAction::triggered, this, &QMainWindow::close);
   exit_action->setShortcut(QKeySequence::Close);
@@ -78,11 +80,7 @@ void View::ShowRightAnswer(const std::string& answer) {
 }
 
 void View::SetProgress(int progress) {
-  // if (centralWidget() == pick_an_option_page_->GetCentralWidget()) {
-  // }
   pick_an_option_page_->SetProgress(progress);
-  // if (centralWidget() == input_answer_page_->GetCentralWidget()) {
-  // }
   input_answer_page_->SetProgress(progress);
 }
 
